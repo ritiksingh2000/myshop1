@@ -51,7 +51,7 @@ include "_include/_header.php";
                 <div class="card shadow" style="font-family:Noto-Sans;">
                     <img src="' . $p['img'] . '" class="card-img-top shadow" alt="...">
                     <div class="card-body text-center">
-                        <a href="" class="text-decoration-none text-dark">
+                        <a href="productpage.php?product=' . $p['id'] . '" class="text-decoration-none text-dark">
                         <p class="h4 py-0">' . $p['name'] . '</p>
                         <p class="h5 fw-normal py-0">Price - &#8377;' . $p['price'] . '</p>
                         </a>

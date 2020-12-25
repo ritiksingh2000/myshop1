@@ -28,10 +28,10 @@
                 <ul class="navbar-nav mx-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link active text-decoration-none text-light" aria-current="page" href="#">Categories</a>
+                        <a class="nav-link active text-decoration-none text-light" aria-current="page" href="categories.php">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-decoration-none text-light" aria-current="page" href="#">Contact Us</a>
+                        <a class="nav-link active text-decoration-none text-light" aria-current="page" href="contact_us.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active text-decoration-none text-light" aria-current="page" href="account.php">Account</a>

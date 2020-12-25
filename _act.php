@@ -1,7 +1,8 @@
 <?php
 
-$action = $_POST['act'];
+
 if ($_SERVER['REQUEST_METHOD']=="POST"){
+  $action = $_POST['act'];
   if ($action=="reg"){
     $f_name = $_POST['f_name'];
     $l_name = $_POST['l_name'];
@@ -108,6 +109,29 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
     header("location: account.php");
     
 
+  } elseif ($_POST['act'] == "send_message") {
+    $email = $_POST['email'];
+    $phone_num = $_POST['Phone'];
+    $subject = $_POST['Subject'];
+    $message = $_POST['message'];
+
+    $connection = new PDO("mysql:host=localhost;dbname=ecom", 'root', '');
+    $sql = $connection->prepare("INSERT INTO user_messages (user_email, user_phone_number, user_message_subject, user_message) VALUES ('$email', '$phone_num', '$subject', '$message')");
+    $result_sql = $sql->execute();
+    if(isset($result_sql)){
+      session_start();
+      $_SESSION['is_msg'] = true;
+      $_SESSION['msg_bg'] = "success";
+      $_SESSION['msg'] = "Message Sent Successfully. We will reply as soon as possible";
+      
+      header("location: contact_us.php");
+    }else{
+      session_start();
+      $_SESSION['is_msg'] = true;
+      $_SESSION['msg_bg'] = "warning";
+      $_SESSION['msg'] = "Unable To Send Message. Please Try Again.";
+      header("location: contact_us.php");
+    }
   }
 }else{
   $action = $_GET['act'];

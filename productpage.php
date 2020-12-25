@@ -6,10 +6,10 @@ $sql = $dbcon->prepare("SELECT * FROM products WHERE id=$p_id");
 $sql->execute();
 $product = $sql->fetch();
 $num = $sql->rowCount();
-if($product['in_stock']==0){
-    $status='Out Of Stock';
-}else{
-    $status='In Stock'; 
+if ($product['in_stock'] == 0) {
+    $status = 'Out Of Stock';
+} else {
+    $status = 'In Stock';
 }
 
 if ($num == 1) {
@@ -60,17 +60,17 @@ if ($num == 1) {
 echo '<div class="container p-3">
     <div class="card-body bg-light rounded">
         <div class="row m-0 p-0">';
-$category=$product['category'];
+$category = $product['category'];
 $sql = $dbcon->prepare("SELECT * FROM products WHERE category='$category'");
 $sql->execute();
-$num=$sql->rowCount();
-if($num>=1){
+$num = $sql->rowCount();
+if ($num >= 1) {
     $products = $sql->fetchAll();
     foreach ($products as $p) {
         $desc = substr($p['p_desc'], 0, 230);
         echo '<div class="col-sm-6 col-md-4">
                 <div class="card shadow">
-                    <img src="'.$p['img']. '" class="card-img-top shadow" alt="...">
+                    <img src="' . $p['img'] . '" class="card-img-top shadow" alt="...">
                     <div class="card-body">
                         <h5 class="h2 pl-2">' . $p['name'] . '</h5>
                         <p class="h3">&#8377;' . $p['price'] . '</p>

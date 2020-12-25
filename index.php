@@ -56,7 +56,7 @@ include "_include/_header.php";
                         <p class="h5 fw-normal py-0">Price - &#8377;' . $p['price'] . '</p>
                         </a>
                         <hr>
-                        <a href="#" class="btn btn-outline-dark">Buy Now</a>
+                        <a href="quick_buy.php?p_name=' . $p['name'] . '&p_id=' . $p['id'] . '" class="btn btn-outline-dark">Buy Now</a>
                         <a href="_act.php?act=addtocart&val=' . $p['id'] . '" class="btn btn-outline-dark">Add To Cart</a>
                     </div>
                 </div>
